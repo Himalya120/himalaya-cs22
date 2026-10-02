@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="ice">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>پنل ادمین · Himalaya CS2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Vazirmatn:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/player.css">
+</head>
+<body class="admin">
+  <div class="stars"></div>
+  <canvas id="bg"></canvas>
+
+  <nav>
+    <div class="logo">HIMALAYA · ADMIN</div>
+    <div class="tools">
+      <button class="btn ghost small" id="themeBtn"></button>
+      <a class="btn ghost small" href="index.html">← سایت اصلی</a>
+      <button class="btn ghost small" id="logoutBtn" hidden>خروج</button>
+    </div>
+  </nav>
+
+    <aside class="dock" id="dock" hidden>
+    <button class="dk active" data-tab="registrations"><b>📋</b><span>ثبت نام‌ها</span></button>
+    <button class="dk" data-tab="messages"><b>💬</b><span>تیکت‌ها</span></button>
+    <button class="dk" data-tab="matches"><b>🏆</b><span>مسابقات</span></button>
+  </aside>
+
+  <div class="admin-wrap">
+    <form class="card login-card" id="loginForm">
+      <div class="orb"><i></i><i></i><i></i><b></b></div>
+      <h2>ورود ادمین</h2>
+      <input id="user" placeholder="نام کاربری" autocomplete="username" required>
+      <input id="pass" type="password" placeholder="رمز عبور" autocomplete="current-password" required>
+      <div class="err" id="err"></div>
+      <button class="btn" id="loginBtn" type="submit">ورود</button>
+    </form>
+
+    <div id="panel" hidden>
+     <div id="viewList">
+      <div class="stats">
+        <div class="card stat"><b id="sAll">0</b><span>کل ثبت نام‌ها</span></div>
+        <div class="card stat"><b id="sPending">0</b><span>در انتظار تایید</span></div>
+        <div class="card stat"><b id="sApproved">0</b><span>تایید شده</span></div>
+        <div class="card stat"><b id="sRejected">0</b><span>رد شده</span></div>
+        <div class="card stat"><b id="sMsg">0</b><span>پیام‌های خوانده نشده</span></div>
+      </div>
+
+      <div class="toolbar">
+        <span class="sp"></span>
+        <span id="filters">
+          <button class="btn small ghost active" data-filter="all">همه</button>
+          <button class="btn small ghost" data-filter="pending">در انتظار</button>
+          <button class="btn small ghost" data-filter="approved">تایید شده</button>
+          <button class="btn small ghost" data-filter="rejected">رد شده</button>
+        </span>
+        <input id="search" placeholder="جستجو...">
+        <button class="btn small ghost" id="refreshBtn">↻ بروزرسانی</button>
+        <button class="btn small ghost" id="csvBtn">خروجی CSV</button>
+      </div>
+
+      <div class="items" id="items"></div>
+     </div>
+
+     <div id="viewMatches" hidden>
+      <form class="card" id="matchForm">
+        <h3 id="mfTitle">مسابقه جدید</h3>
+        <div class="grid2">
+          <label>تیم اول<input id="mA" required maxlength="40"></label>
+          <label>تیم دوم<input id="mB" required maxlength="40"></label>
+        </div>
+        <div class="grid2">
+          <label>ساعت مسابقه<input id="mTime" type="datetime-local" required></label>
+          <label>وضعیت<select id="mStatus"><option value="upcoming">به‌زودی</option><option value="live">زنده (در حال برگزاری)</option><option value="finished">پایان یافته</option></select></label>
+        </div>
+        <label>برنده (بعد از پایان مسابقه)<select id="mWinner"><option value="">— مشخص نشده —</option><option value="a">تیم اول</option><option value="b">تیم دوم</option></select></label>
+        <div><b>استریم‌های تماشای مسابقه</b><div id="streamRows"></div><button type="button" class="btn small ghost" id="addStream">+ افزودن استریم</button></div>
+        <div class="acts"><button class="btn" type="submit">ذخیره</button><button type="button" class="btn ghost" id="mCancel" hidden>انصراف از ویرایش</button></div>
+      </form>
+      <div class="items" id="matchItems"></div>
+     </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-matches.js"></script>
+  <script src="assets/js/playlist.js"></script>
+  <script src="assets/js/player.js"></script>
+</body>
+</html>
