@@ -1,0 +1,22 @@
+/* ===== Match schedule section ===== */
+.matches{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px}
+.match{position:relative;display:grid;gap:14px;text-align:center;padding-top:44px}
+.none{grid-column:1/-1;text-align:center;color:var(--muted)}
+.vs{display:flex;align-items:center;justify-content:center;gap:14px}
+.team{flex:1;font:700 1.3rem/1.5 "Orbitron","Vazirmatn",sans-serif;color:var(--accent2);word-break:break-word}
+html[lang="fa"] .team{font-family:"Vazirmatn",sans-serif}
+.vs-mark{font:900 1.7rem Orbitron;color:var(--accent);text-shadow:var(--glow)}
+.mtime{color:var(--muted)}
+.cd{display:block;color:var(--accent);font-weight:700;margin-top:4px;direction:ltr}
+.pick-title{color:var(--muted);font-size:.85rem}
+.pick{display:flex;gap:10px}.pick .btn{flex:1}
+.mine{color:var(--accent2)}
+.winner{color:var(--accent2);font-weight:700}
+.bars{display:grid;gap:6px;text-align:start}.bars small{color:var(--muted)}
+.bar{position:relative;height:32px;border-radius:10px;border:1px solid var(--border);overflow:hidden;background:rgba(0,0,0,.3)}
+.bar i{position:absolute;top:0;bottom:0;inset-inline-start:0;width:var(--w);background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:.45}
+.bar span{position:relative;display:flex;justify-content:space-between;padding:0 12px;line-height:30px;font-size:.85rem}.bar em{font-style:normal;color:var(--muted)}
+.streams{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.st{position:absolute;top:16px;inset-inline-end:16px;padding:3px 12px;border-radius:999px;font-size:.75rem;font-weight:700}
+.st-upcoming{background:var(--accent);color:#02101d}.st-live{background:#ef4444;color:#fff;animation:blink 1.2s infinite}.st-finished{background:#64748b;color:#fff}
+@keyframes blink{50%{opacity:.55}}

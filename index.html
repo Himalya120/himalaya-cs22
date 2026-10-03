@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="ice">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Himalaya CS2 Grand Tournament</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Caveat:wght@600&family=Vazirmatn:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/matches.css">
+  <link rel="stylesheet" href="assets/css/news.css">
+  <link rel="stylesheet" href="assets/css/player.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <canvas id="bg"></canvas>
+
+  <!-- Ice theme: Himalayan mountain ranges + snowman -->
+  <svg class="bgart mountains" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice">
+    <path d="M0 400V260l180-110 80 50 160-140 140 150 140-90 120 100 180-180 150 150 130-80 140 120v230z" fill="#1d4f80" opacity=".6"/>
+    <g fill="#eaf8ff" opacity=".9"><polygon points="375,105 420,60 470,110 445,100 420,120 400,98"/><polygon points="950,95 1000,40 1055,100 1030,90 1000,115 975,92"/><polygon points="150,178 180,150 212,182 190,172 180,185 165,172"/><polygon points="668,150 700,120 735,155 712,147 700,160 685,147"/><polygon points="1270,138 1300,110 1335,142 1315,135 1300,150 1285,135"/></g>
+    <path d="M0 400V320l140-70 160 80 180-100 160 100 220-70 180 80 200-100 200 90v170z" fill="#0d2f52" opacity=".92"/>
+    <g fill="#eaf8ff"><polygon points="445,262 480,230 515,265 495,258 480,272 462,258"/><polygon points="1205,272 1240,240 1278,276 1258,268 1240,284 1222,268"/><polygon points="108,268 140,250 172,272 152,266 140,280 124,266"/></g>
+  </svg>
+  <svg class="bgart snowman" viewBox="0 0 200 300"><g fill="#eaf8ff"><circle cx="100" cy="235" r="62"/><circle cx="100" cy="145" r="44"/><circle cx="100" cy="80" r="31"/><rect x="72" y="30" width="56" height="22" rx="3"/><rect x="60" y="50" width="80" height="7" rx="3"/></g><polygon points="100,80 150,88 100,92" fill="#ff9a3d"/><g fill="#0a2a4d"><circle cx="90" cy="72" r="4"/><circle cx="112" cy="72" r="4"/><circle cx="100" cy="135" r="4"/><circle cx="100" cy="155" r="4"/><circle cx="100" cy="176" r="4"/></g><path d="M58 140 L15 105 M142 140 L188 108" stroke="#c9a56b" stroke-width="6" stroke-linecap="round"/></svg>
+  <!-- Sunset theme: setting sun -->
+  <div class="bgart sun"></div><div class="bgart horizon"></div>
+
+  <nav>
+    <div class="brand">
+      <div class="logo">HIMALAYA</div>
+      <button class="bell" id="bellBtn" aria-label="News"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 22a2.4 2.4 0 0 0 2.4-2.4h-4.8A2.4 2.4 0 0 0 12 22zm7-6.4V11a7 7 0 0 0-5.2-6.8V3.2a1.8 1.8 0 0 0-3.6 0v1A7 7 0 0 0 5 11v4.6l-2 2V19h18v-1.4z"/></svg><span class="bell-dot" id="bellDot" hidden></span></button>
+      <div class="news-pop" id="newsPop">
+        <div class="news-head"><span id="newsHead"></span><button class="news-close" id="newsClose" aria-label="Close">✕</button></div>
+        <div id="newsList"></div>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#home" data-i18n="nav_home"></a><a href="#stream" data-i18n="nav_stream"></a><a href="#matches" data-i18n="nav_matches"></a><a href="#register" data-i18n="nav_register"></a>
+      <a href="#support" data-i18n="nav_support"></a><a href="#donate" data-i18n="nav_donate"></a><a href="#about" data-i18n="nav_about"></a>
+    </div>
+    <div class="tools">
+      <button class="btn ghost small" id="themeBtn"></button>
+      <a class="btn small" href="admin.html" data-i18n="nav_admin"></a>
+      <button class="btn ghost small" id="langBtn">EN</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="scene">
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <div class="cube"><div>CS2</div><div>HIM</div><div>GG</div><div>CS2</div><div>★</div><div>★</div></div>
+      </div>
+      <div class="tag hand" data-i18n="hero_tag"></div>
+      <h1 data-i18n="hero_title"></h1>
+      <p data-i18n="hero_sub"></p>
+      <div class="hand" data-i18n="hero_by"></div>
+      <a href="#register" class="btn" data-i18n="hero_cta"></a>
+    </section>
+
+    <section id="stream">
+      <div class="orb"><i></i><i></i><i></i><b></b></div>
+      <h2 data-i18n="st_title"></h2>
+      <p class="sub" data-i18n="st_sub"></p>
+      <div class="stream-grid">
+        <div class="frame live tilt">
+          <div class="head"><span>● LIVE · Admiral</span></div>
+          <div class="poster"><div class="play">▶</div>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.aparat.com/admiralsitca/live" data-i18n="st_watch"></a>
+            <button class="btn ghost" data-embed="STREAM_URL" data-i18n="st_embed"></button></div>
+        </div>
+        <div class="frame tilt">
+          <div class="head"><span data-i18n="st_chat"></span></div>
+          <div class="poster"><div class="play">▶</div>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.aparat.com/admiralsitca/live/chat" data-i18n="st_watch"></a>
+            <button class="btn ghost" data-embed="CHAT_URL" data-i18n="st_embed"></button></div>
+        </div>
+      </div>
+    </section>
+
+        <section id="matches">
+      <div class="mwrap"><div class="mcube rev"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <h2 data-i18n="m_title"></h2>
+      <p class="sub" data-i18n="m_sub"></p>
+      <div class="matches" id="matchList"></div>
+    </section>
+
+    <section id="register">
+      <div class="mwrap"><div class="mcube"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <h2 data-i18n="reg_title"></h2>
+      <p class="sub" data-i18n="reg_sub"></p>
+      <form class="card tilt" id="regForm">
+        <label><span data-i18n="f_name"></span><input id="name" required maxlength="60"></label>
+        <label><span data-i18n="f_contact"></span><input id="contact" required maxlength="60"></label>
+        <label><span data-i18n="f_steam"></span><input id="steam" required maxlength="200"></label>
+        <label><span data-i18n="f_play"></span><input id="play" required maxlength="20" inputmode="numeric"></label>
+        <label><span data-i18n="f_email"></span><input id="email" type="email" maxlength="80"></label>
+        <label><span data-i18n="f_team"></span><input id="team" maxlength="60"></label>
+        <label><span data-i18n="f_note"></span><textarea id="note" maxlength="500"></textarea></label>
+        <button class="btn" id="regSubmit" type="submit" data-i18n="submit"></button>
+      </form>
+    </section>
+
+    <section id="support">
+      <div class="orb"><i></i><i></i><i></i><b></b></div>
+      <h2 data-i18n="sp_title"></h2>
+      <p class="sub" data-i18n="sp_text"></p>
+      <div class="contact-row">
+        <a class="card tilt" target="_blank" rel="noopener" href="https://rubika.ir/DAEI_AMIR12033"><span data-i18n="sp_rubika"></span><b>@DAEI_AMIR12033</b></a>
+        <a class="card tilt" target="_blank" rel="noopener" href="https://t.me/DAEI_AMIR120"><span data-i18n="sp_tg"></span><b>@DAEI_AMIR120</b></a>
+      </div>
+      <form class="card" id="msgForm">
+        <label><span data-i18n="f_name2"></span><input id="cName" required maxlength="60"></label>
+        <label><span data-i18n="f_msg"></span><textarea id="cMsg" required maxlength="1000"></textarea></label>
+        <button class="btn" type="submit" data-i18n="send"></button>
+      </form>
+    </section>
+
+    <section id="donate">
+      <div class="card donate tilt">
+        <div class="mwrap"><div class="mcube rev"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div class="big">💙</div>
+        <h2 data-i18n="do_title"></h2>
+        <p class="sub" data-i18n="do_text"></p>
+        <a class="btn" target="_blank" rel="noopener" href="https://reymit.ir/admiralsitca" data-i18n="do_btn"></a>
+        <div class="hand" data-i18n="do_hint"></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="mwrap"><div class="mcube"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <h2 data-i18n="ab_title"></h2>
+      <div class="card about-card tilt"><p data-i18n="ab_text"></p></div>
+    </section>
+  </main>
+
+  <footer data-i18n="footer"></footer>
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/matches.js"></script>
+  <script src="assets/js/news.js"></script>
+  <script src="assets/js/playlist.js"></script>
+  <script src="assets/js/player.js"></script>
+</body>
+</html>
