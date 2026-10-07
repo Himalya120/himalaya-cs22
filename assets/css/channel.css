@@ -1,0 +1,9 @@
+/* ===== Channel box (replaces the live chat frame) ===== */
+.frame.ch{position:relative;min-height:420px}
+.chfeed{position:absolute;inset:44px 0 0 0;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px}
+.chpost{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:16px;padding:8px}
+.chpost img{width:100%;max-height:300px;object-fit:cover;border-radius:12px;display:block;cursor:zoom-in}
+.chpost p{padding:8px 6px 2px;line-height:1.9;white-space:pre-line;word-break:break-word;font-size:.92rem}
+.chpost time{display:block;padding:2px 6px;font-size:.7rem;color:var(--muted);text-align:end}
+.lightbox{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.9);display:grid;place-items:center;cursor:zoom-out;padding:16px}
+.lightbox img{max-width:100%;max-height:100%;border-radius:12px}

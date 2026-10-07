@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="ice">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videos · Himalaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Caveat:wght@600&family=Vazirmatn:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/videos.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+  <link rel="stylesheet" href="assets/css/player.css">
+</head>
+<body class="vpage">
+  <div class="stars"></div>
+  <canvas id="bg"></canvas>
+
+  <nav>
+    <div class="logo">HIMALAYA</div>
+    <div class="tools">
+      <a class="btn small" href="index.html" data-transition data-i18n="v_back"></a>
+      <button class="btn ghost small" id="themeBtn"></button>
+      <button class="btn ghost small" id="langBtn">EN</button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="vhero">
+      <div class="orb"><i></i><i></i><i></i><b></b></div>
+      <h1 data-i18n="v_title"></h1>
+      <p class="sub" data-i18n="v_sub"></p>
+      <div class="vtabs">
+        <button class="btn active" data-kind="long"><span data-i18n="v_long"></span><small id="cLong">0</small></button>
+        <button class="btn ghost" data-kind="short"><span data-i18n="v_short"></span><small id="cShort">0</small></button>
+      </div>
+    </header>
+    <div class="vgrid long" id="vGrid"></div>
+  </main>
+
+  <footer data-i18n="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/yt.js"></script>
+  <script src="assets/js/videos-core.js"></script>
+  <script src="assets/js/videos-page.js"></script>
+  <script src="assets/js/transition.js"></script>
+  <script src="assets/js/playlist.js"></script>
+  <script src="assets/js/player.js"></script>
+</body>
+</html>

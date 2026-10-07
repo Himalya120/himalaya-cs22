@@ -1,0 +1,41 @@
+/* ===== Video cards, suggestion strip, in-site player, videos page ===== */
+body.noscroll{overflow:hidden}
+.vcard{position:relative;cursor:pointer;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);transition:.25s}
+.vcard:hover,.vcard:focus-visible{transform:translateY(-6px) scale(1.02);box-shadow:var(--glow);border-color:var(--accent);outline:none}
+.vthumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.vcard.short .vthumb{aspect-ratio:9/16}
+.vthumb img{width:100%;height:100%;object-fit:cover;transition:.4s}.vcard:hover img{transform:scale(1.08)}
+.vplay{position:absolute;inset:0;display:grid;place-items:center;font-size:2.2rem;color:#fff;opacity:0;background:rgba(0,0,0,.35);transition:.25s}
+.vcard:hover .vplay{opacity:1}
+.vcard h3{padding:10px 12px;font:700 .9rem/1.7 "Vazirmatn",sans-serif;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* diagonal "NEW" ribbon (shown for 4 days) */
+.ribbon{position:absolute;top:16px;left:-40px;width:140px;text-align:center;transform:rotate(-45deg);background:linear-gradient(90deg,#ef4444,#f97316);color:#fff;font:700 .72rem "Orbitron","Vazirmatn",sans-serif;padding:4px 0;letter-spacing:1px;box-shadow:0 2px 10px rgba(0,0,0,.45);z-index:2}
+/* moving strip on the main page */
+.sugg{max-width:none;padding:30px 0 50px}
+.sugg-more{text-align:center;margin-top:22px}
+.marquee{overflow:hidden;direction:ltr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:18px;width:max-content;padding-right:18px;align-items:center;animation:marq var(--dur,40s) linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.track .vcard{width:270px;flex:none}.track .vcard.short{width:150px}
+/* in-site player */
+.vmodal{position:fixed;inset:0;z-index:9000;display:none;place-items:center;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);padding:16px}
+.vmodal.open{display:grid}
+.vbox{width:min(920px,100%);max-height:96vh;overflow:auto;border-radius:22px;border:1px solid var(--accent);background:linear-gradient(var(--glass),var(--glass)),rgba(6,10,18,.96);box-shadow:var(--glow);padding:12px;display:grid;gap:10px}
+.vmodal.big .vbox{width:min(1500px,100%)}
+.vbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.vbar .sp{flex:1}
+.vframe{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}.vframe iframe{width:100%;height:100%;border:0}
+.vmodal.short .vbox{width:fit-content;max-width:100%}
+.vmodal.short .vframe{height:min(74vh,760px);aspect-ratio:9/16;width:auto;margin:0 auto}
+.vmodal.short.big .vframe{height:min(86vh,1000px)}
+.vtitle{font-weight:700;color:var(--accent2);line-height:1.8}
+/* videos.html */
+.vpage main{padding-top:80px}
+.vhero{text-align:center;max-width:1150px;margin:auto;padding:50px 20px 0}
+.vhero h1{font-size:clamp(2rem,6vw,3.6rem);color:var(--accent2);text-shadow:var(--glow)}
+.vtabs{display:flex;gap:10px;justify-content:center;margin:22px 0 26px;flex-wrap:wrap}
+.vtabs .btn.active{box-shadow:var(--glow);transform:translateY(-2px)}
+.vtabs .btn small{opacity:.7;margin-inline-start:6px}
+.vgrid{max-width:1150px;margin:auto;padding:0 20px 80px;display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.vgrid.short{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.vnone{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px}

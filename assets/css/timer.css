@@ -1,0 +1,17 @@
+/* ===== Floating countdown timer + "started" celebration ===== */
+.timer-box{position:relative;z-index:3;padding:16px 36px;border-radius:24px;border:1px solid var(--accent);text-align:center;
+  background:linear-gradient(var(--glass),var(--glass)),rgba(6,10,18,.72);backdrop-filter:blur(14px);box-shadow:var(--glow),0 0 60px var(--border);
+  animation:tbIn .8s cubic-bezier(.2,1.4,.4,1),tbFloat 4s ease-in-out .8s infinite}
+.timer-box.out{animation:tbOut .8s forwards}
+.tb-title{color:var(--accent2);font-weight:700;margin-bottom:4px}
+.tb-digits{font:900 clamp(2.2rem,7vw,3.6rem) "Orbitron",sans-serif;direction:ltr;letter-spacing:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes tbIn{from{opacity:0;transform:scale(.3) translateY(-30px)}to{opacity:1;transform:none}}
+@keyframes tbOut{to{opacity:0;transform:scale(.6) translateY(-20px)}}
+@keyframes tbFloat{50%{transform:translateY(-8px)}}
+.timer-finish{position:fixed;inset:0;z-index:9997;display:grid;place-items:center;pointer-events:none;background:radial-gradient(circle,rgba(0,0,0,.6),rgba(0,0,0,.25));animation:tfIn .6s both}
+.timer-finish.out{animation:tfOut 1s forwards}
+.tf-text{padding:0 20px;text-align:center;font:900 clamp(3rem,13vw,10rem)/1.15 "Orbitron",sans-serif;background:linear-gradient(90deg,#fff,var(--accent2),var(--accent),#fff);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 30px var(--accent));animation:tfPop 1s cubic-bezier(.2,1.5,.4,1) both,shine 3s linear infinite}
+html[lang="fa"] .tf-text{font-family:"Lalezar","Vazirmatn",sans-serif}
+.confetti{position:fixed;inset:0;z-index:9998;pointer-events:none}
+@keyframes tfIn{from{opacity:0}to{opacity:1}}@keyframes tfOut{to{opacity:0}}
+@keyframes tfPop{from{opacity:0;transform:scale(.2) rotate(-8deg)}to{opacity:1;transform:none}}

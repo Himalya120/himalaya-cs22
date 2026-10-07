@@ -1,0 +1,10 @@
+/* ===== Theme transitions (see transition.js) ===== */
+.trans-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:9999}
+.trans-cover{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:1;transition:opacity .9s ease}
+.trans-cover.fade{opacity:0}
+main,nav{transition:filter 1.4s ease}
+body.t-ice main{filter:blur(2px) brightness(1.35) saturate(.6)}
+body.t-sunset main,body.t-sunset nav{filter:sepia(1) saturate(5) hue-rotate(-18deg) brightness(1.15);animation:tBurn .14s infinite}
+body.t-matrix main,body.t-matrix nav{filter:hue-rotate(60deg) contrast(1.5);animation:tGlitch .16s steps(2) infinite}
+@keyframes tBurn{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,-1px)}50%{transform:translate(2px,1px)}75%{transform:translate(-1px,2px)}}
+@keyframes tGlitch{0%,100%{transform:translate(0) skewX(0);clip-path:none}20%{transform:translate(-8px,2px) skewX(3deg)}40%{transform:translate(6px,-3px) skewX(-4deg);clip-path:inset(0 0 40% 0)}60%{transform:translate(-4px,3px)}80%{transform:translate(9px,0) skewX(2deg);clip-path:inset(30% 0 0 0)}}
